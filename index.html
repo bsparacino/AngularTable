@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" ng-app="angularTableApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Angular Table</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.tableFilters select, input
+		{
+		  margin-right: 10px;
+		  margin-bottom: 10px;
+		}
+		.navbar-inverse .navbar-brand
+		{
+		    color: #fff;
+		    font-family: "Trebuchet MS",Arial,sans-serif;
+		    text-transform: uppercase;
+		}
+	</style>
+</head>
+<body>	
+
+	<div class="container">
+
+	    <div class="navbar navbar-inverse" role="navigation">
+	        <div class="navbar-header">
+	            <a class="navbar-brand" href="">Angular Table</a>
+	        </div>
+	    </div>
+
+	    <div ui-view=""></div>
+
+	</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
