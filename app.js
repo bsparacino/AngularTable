@@ -110,18 +110,18 @@ var app = angular.module('angularTableApp', ['ui.router','ui.bootstrap'])
             	$timeout(function()
             	{
             		var data = [
-            			{id:'1', firstName:'William', lastName:'Hartnell', series:'Old'},
-						{id:'2', firstName:'Patrick', lastName:'Troughton', series:'Old'},
-						{id:'3', firstName:'Jon', lastName:'Pertwee', series:'Old'},
-						{id:'4', firstName:'Tom', lastName:'Baker', series:'Old'},
-						{id:'5', firstName:'Peter', lastName:'Davison', series:'Old'},
-						{id:'6', firstName:'Colin', lastName:'Baker', series:'Old'},
-						{id:'7', firstName:'Sylvester', lastName:'McCoy', series:'Old'},
-						{id:'8', firstName:'Paul', lastName:'McGann', series:'Old'},
-						{id:'9', firstName:'Christopher', lastName:'Eccleston', series:'New'},
-						{id:'10', firstName:'David', lastName:'Tennant', series:'New'},
-						{id:'11', firstName:'Matt', lastName:'Smith', series:'New'},
-						{id:'12', firstName:'Peter', lastName:'Capaldi', series:'New'}
+            			{id:1, firstName:'William', lastName:'Hartnell', series:'Old'},
+						{id:2, firstName:'Patrick', lastName:'Troughton', series:'Old'},
+						{id:3, firstName:'Jon', lastName:'Pertwee', series:'Old'},
+						{id:4, firstName:'Tom', lastName:'Baker', series:'Old'},
+						{id:5, firstName:'Peter', lastName:'Davison', series:'Old'},
+						{id:6, firstName:'Colin', lastName:'Baker', series:'Old'},
+						{id:7, firstName:'Sylvester', lastName:'McCoy', series:'Old'},
+						{id:8, firstName:'Paul', lastName:'McGann', series:'Old'},
+						{id:9, firstName:'Christopher', lastName:'Eccleston', series:'New'},
+						{id:10, firstName:'David', lastName:'Tennant', series:'New'},
+						{id:11, firstName:'Matt', lastName:'Smith', series:'New'},
+						{id:12, firstName:'Peter', lastName:'Capaldi', series:'New'}
             		];
             		deferred.resolve(data);
             	}, 100);
