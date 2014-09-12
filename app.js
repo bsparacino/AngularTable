@@ -1,10 +1,10 @@
 var app = angular.module('angularTableApp', ['ui.router','ui.bootstrap'])
 .filter('skip', function()
 {
-    return function(array, skipAt, perPage)
-    {
-        return array ? array.slice((skipAt-1)*perPage) : [];
-    };
+	return function(array, skipAt, perPage)
+	{
+		return array ? array.slice((skipAt-1)*perPage) : [];
+	};
 })
 .directive('angularTable', ['$compile', function($compile)
 {
@@ -14,8 +14,8 @@ var app = angular.module('angularTableApp', ['ui.router','ui.bootstrap'])
 		{
 			scope.loaded = 0;
 			scope.itemsPerPage = 10;
-            scope.currentPage = 1;
-            scope.maxPageButtons = 5;
+			scope.currentPage = 1;
+			scope.maxPageButtons = 5;
 			scope.loaded = 1;
 			scope.sortField = '';
 			scope.emptyMessage = 'No Items Found';
@@ -28,17 +28,17 @@ var app = angular.module('angularTableApp', ['ui.router','ui.bootstrap'])
 			{
 				element.parent().append($compile(
 					'<div>' +
-		                '<div class="pull-left">' +
-		                    '<pagination total-items="'+attrs.tableItems+'.length || 1" items-per-page="itemsPerPage" max-size="maxPageButtons" class="pagination-small" boundary-links="true" ng-model="currentPage"></pagination>' +
-		                '</div>' +
-		                '<select ng-model="itemsPerPage" class="form-control pull-left pagination" style="width:120px; margin-left: 20px;">' +
-		                    '<option value="10">10 per page</option>' +
-		                    '<option value="25">25 per page</option>' +
-		                    '<option value="50">50 per page</option>' +
-		                    '<option value="9999">Show All</option>' +
-		                '</select>' +
-		            '</div>'
-	            )(scope));
+						'<div class="pull-left">' +
+							'<pagination total-items="'+attrs.tableItems+'.length || 1" items-per-page="itemsPerPage" max-size="maxPageButtons" class="pagination-small" boundary-links="true" ng-model="currentPage"></pagination>' +
+						'</div>' +
+						'<select ng-model="itemsPerPage" class="form-control pull-left pagination" style="width:120px; margin-left: 20px;">' +
+							'<option value="10">10 per page</option>' +
+							'<option value="25">25 per page</option>' +
+							'<option value="50">50 per page</option>' +
+							'<option value="9999">Show All</option>' +
+						'</select>' +
+					'</div>'
+					)(scope));
 			}
 
 			var thead = element.find('thead')[0];
@@ -58,22 +58,22 @@ var app = angular.module('angularTableApp', ['ui.router','ui.bootstrap'])
 			var tbody = element.find('tbody')[0];
 			angular.element(tbody).append($compile(
 				'<tr ng-show="loaded==0"><td colspan="99" style="text-align:center;padding-top:20px;padding-bottom:20px;"> <div class="row-fluid"> <div class="innerLR"> <!-- Column --> <div class="span12"> <div class="get-started"> <div class="w100 tcenter"> <h3>Loading, please wait ... </h3> <div class="separator bottom center"></div> </div> </div> </div> <!-- // Column END --> </div> </div> </td></tr>' +
-                '<tr ng-show="loaded==1 && '+attrs.tableItems+'.length==0">' +
-                    '<td colspan="99" style="text-align:center;padding-top:20px;padding-bottom:20px;"> <div class="row-fluid"> <div class="innerLR"> <!-- Column --> <div class="span12"> <div class="get-started"> <div class="w100 tcenter"> <h3>'+scope.emptyMessage+'</h3> <div class="separator bottom center"></div> </div> </div> </div> <!-- // Column END --> </div> </div> </td>' +
-                '</tr>'
-            )(scope));
+				'<tr ng-show="loaded==1 && '+attrs.tableItems+'.length==0">' +
+					'<td colspan="99" style="text-align:center;padding-top:20px;padding-bottom:20px;"> <div class="row-fluid"> <div class="innerLR"> <!-- Column --> <div class="span12"> <div class="get-started"> <div class="w100 tcenter"> <h3>'+scope.emptyMessage+'</h3> <div class="separator bottom center"></div> </div> </div> </div> <!-- // Column END --> </div> </div> </td>' +
+				'</tr>'
+				)(scope));
 
-            scope.sortTable = function(sortField)
-            {
-                if(scope.sortField != sortField)
-                {
-                    scope.sortField = sortField;
-                }
-                else
-                {
-                    scope.sortField = '-'+sortField;
-                }
-            };
+			scope.sortTable = function(sortField)
+			{
+				if(scope.sortField != sortField)
+				{
+					scope.sortField = sortField;
+				}
+				else
+				{
+					scope.sortField = '-'+sortField;
+				}
+			};
 
 			scope.sortTableArrow = function(field)
 			{
@@ -96,21 +96,21 @@ var app = angular.module('angularTableApp', ['ui.router','ui.bootstrap'])
 }])
 .config(['$stateProvider', function($stateProvider)
 {
-    $stateProvider
-    .state('directory',
-    {
-        url: '',
-        templateUrl: 'directory.html',
-        resolve:
-        {
-            employees: ['$timeout', '$q', function($timeout, $q)
-            {
-            	var deferred = $q.defer();            	
+	$stateProvider
+	.state('directory',
+	{
+		url: '',
+		templateUrl: 'directory.html',
+		resolve:
+		{
+			employees: ['$timeout', '$q', function($timeout, $q)
+			{
+				var deferred = $q.defer();            	
 
-            	$timeout(function()
-            	{
-            		var data = [
-            			{id:1, firstName:'William', lastName:'Hartnell', series:'Old'},
+				$timeout(function()
+				{
+					var data = [
+						{id:1, firstName:'William', lastName:'Hartnell', series:'Old'},
 						{id:2, firstName:'Patrick', lastName:'Troughton', series:'Old'},
 						{id:3, firstName:'Jon', lastName:'Pertwee', series:'Old'},
 						{id:4, firstName:'Tom', lastName:'Baker', series:'Old'},
@@ -122,19 +122,19 @@ var app = angular.module('angularTableApp', ['ui.router','ui.bootstrap'])
 						{id:10, firstName:'David', lastName:'Tennant', series:'New'},
 						{id:11, firstName:'Matt', lastName:'Smith', series:'New'},
 						{id:12, firstName:'Peter', lastName:'Capaldi', series:'New'}
-            		];
-            		deferred.resolve(data);
-            	}, 100);
-                
-                return deferred.promise;
-            }]
-        },
-        controller: ['$scope', 'employees', function($scope, employees)
-        {
-        	$scope.employees = employees;
+					];
+					deferred.resolve(data);
+				}, 100);
 
-            $scope.search = {name:'',series:''};
-            $scope.filterEmployees = function(employee)
+				return deferred.promise;
+			}]
+		},
+		controller: ['$scope', 'employees', function($scope, employees)
+		{
+			$scope.employees = employees;
+
+			$scope.search = {name:'',series:''};
+			$scope.filterEmployees = function(employee)
 			{
 				if($scope.search.name === '' || (employee.firstName+' '+employee.lastName).toLowerCase().indexOf($scope.search.name.toLowerCase()) >= 0)
 				{
@@ -145,6 +145,6 @@ var app = angular.module('angularTableApp', ['ui.router','ui.bootstrap'])
 				}
 			};
 
-    	}]
-    });
+		}]
+	});
 }]);

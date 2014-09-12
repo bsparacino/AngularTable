@@ -4,45 +4,45 @@
 	</div>
 	<div class="panel-body">
 
-        <div class="tableFilters">
-            
-            <input type="text" placeholder="search" ng-model="search.name" class="form-control pull-left" style="width:160px;" />
+		<div class="tableFilters">
 
-            <select ng-model="search.series" class="form-control pull-left" style="width:130px;">
-                <option value="">Old/New</option>
-                <option value="Old">Old</option>
-                <option value="New">New</option>
-            </select>
+			<input type="text" placeholder="search" ng-model="search.name" class="form-control pull-left" style="width:160px;" />
 
-        </div>
+			<select ng-model="search.series" class="form-control pull-left" style="width:130px;">
+				<option value="">Old/New</option>
+				<option value="Old">Old</option>
+				<option value="New">New</option>
+			</select>
 
-        <div class="pull-right tableFilters">
-            <button class="btn btn-success"><span class="glyphicon glyphicon-print"></span> Print</button>
-            <button class="btn btn-success"><span class="glyphicon glyphicon-user"></span> Add Employee</button>
-        </div>
+		</div>
 
-        <div class="clearfix"></div>
+		<div class="pull-right tableFilters">
+			<button class="btn btn-success"><span class="glyphicon glyphicon-print"></span> Print</button>
+			<button class="btn btn-success"><span class="glyphicon glyphicon-user"></span> Add Employee</button>
+		</div>
 
-        <div>
-            <table angular-table class="table" table-items-per-page="10" table-items="filteredEmployees" table-sort-field="lastName" table-pagination="1" table-empty-message="No Employees Found">
-                <thead>
-                    <tr>
-                    	<th table-sort="id">Id</th>
-                        <th table-sort="firstName">First Name</th>
-                        <th table-sort="lastName">Last Name</th>
-                        <th>Series</th>
-                    </tr>
-                </thead>
-                <tbody>                    
-                    <tr ng-repeat="employee in filteredEmployees = (employees | filter:filterEmployees) | orderBy:sortField | skip:currentPage:itemsPerPage | limitTo:itemsPerPage">
-                        <td>{{employee.id}}</td>
-                        <td>{{employee.firstName}}</td>
-                        <td>{{employee.lastName}}</td>
-                        <td>{{employee.series}}</td>
-                    </tr>                    
-                </tbody>
-            </table>
-        </div>
+		<div class="clearfix"></div>
+
+		<div>
+			<table angular-table class="table" table-items-per-page="10" table-items="filteredEmployees" table-sort-field="lastName" table-pagination="1" table-empty-message="No Employees Found">
+				<thead>
+					<tr>
+						<th table-sort="id">Id</th>
+						<th table-sort="firstName">First Name</th>
+						<th table-sort="lastName">Last Name</th>
+						<th>Series</th>
+					</tr>
+				</thead>
+				<tbody>                    
+					<tr ng-repeat="employee in filteredEmployees = (employees | filter:filterEmployees) | orderBy:sortField | skip:currentPage:itemsPerPage | limitTo:itemsPerPage">
+						<td>{{employee.id}}</td>
+						<td>{{employee.firstName}}</td>
+						<td>{{employee.lastName}}</td>
+						<td>{{employee.series}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 	</div>
 </div>
